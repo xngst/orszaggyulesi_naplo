@@ -115,10 +115,10 @@ hp.parser.ules_datum(tisztazott)
     '2019. december 3.'
 
 #### 5.d Elnökök
-> alelnökök és a háznagy <br>
-> A Házbizottság az Országgyűlés döntés-előkészítő testülete, <br>
-> melynek elnöke az Országgyűlés elnöke, tagjai az Országgyűlés alelnökei, <br>
-> a képviselőcsoportok (frakciók) vezetői és a háznagy.<br>
+(alelnökök és a háznagy)  
+A Házbizottság az Országgyűlés döntés-előkészítő testülete,  
+melynek elnöke az Országgyűlés elnöke, tagjai az Országgyűlés alelnökei,  
+a képviselőcsoportok (frakciók) vezetői és a háznagy.  
 
 
 ```python
