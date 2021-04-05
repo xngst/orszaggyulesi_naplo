@@ -244,10 +244,7 @@ print(type(BBI))
 print(type(BBI[0]))
 BBI[0][:100]
 ```
-
     Kulcs-Érték pár:
-    <class 'list'>
-    <class 'str'>
 
     'BANGÓNÉ BORBÉLY ILDIKÓ (MSZP): Köszönöm szépen, elnök úr. Tisztelt Képviselőtársak!  A múlt héten vo'
 
