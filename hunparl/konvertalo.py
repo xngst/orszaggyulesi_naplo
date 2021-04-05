@@ -13,7 +13,7 @@ from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.pdfpage import PDFPage
 
 def pdf_to_txt(path: str)->str:
-    "#TODO"
+    "pdf dokumentum parzolása"
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
     laparams = LAParams()
