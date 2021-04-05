@@ -1,6 +1,6 @@
 # Országgyűlési Napló elemző
 ## Leírás:  
-A modul az Országgyűlési Napló pdf dokumentum letöltésére és elemzésére szolgál.
+A python3 modul az Országgyűlési Napló pdf dokumentum letöltésére és elemzésére szolgál.
 ## A modullal lehetséges:
    1. az aktuális pdf dokumentum letöltése  
    2. pdf formátumból txt formátumba való átalakítása  
