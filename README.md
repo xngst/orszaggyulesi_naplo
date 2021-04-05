@@ -223,10 +223,10 @@ hp.parser.torveny_javaslat_lista(torzsszoveg)
      'T/8190']
 
 #### 5.j Képviselői felszőlalások szótára
-> Kulcs: képviselő neve <br>
-> Érték: felszólalás(ok) listája <br>
-> Mivel a kulcs gyakran lista értéket tartalmaz, abba indexelésekkel tudunk belépni.<br>
-> Ha egy képviselő csak egyszer szólal fel, akkor nem kell indexelést használni.
+> Kulcs: képviselő neve  
+> Érték: felszólalás(ok) listája  
+> Mivel a kulcs gyakran lista értéket tartalmaz, abba indexelésekkel tudunk belépni.  
+> Ha egy képviselő csak egyszer szólal fel, akkor nem kell indexelést használni.  
 
 ```python
 kepv_felsz_dict = hp.parser.kepviseloi_felszolalas_szotar(torzsszoveg,kepv_list)
