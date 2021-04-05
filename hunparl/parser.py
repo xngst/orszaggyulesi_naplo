@@ -6,7 +6,9 @@ országgnyűlési napló parser
 import re
 
 def szam(text: str)->str:
-    ""
+    """
+    #TODO
+    """
     try:
         szam_pat = re.compile(r"\d{2,3}\. szám")
         szam = re.findall(szam_pat, text)
