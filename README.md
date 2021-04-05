@@ -29,7 +29,7 @@ from pprint import pprint
 
 import hunparl as hp
 
-HOME_DIR = Path("/home/xunguist/Ipython_Notebooks/Scraper/Parlament/Downloaded")
+HOME_DIR = Path("/home/Downloaded")
 ```
 
 ### 2. Letöltés
