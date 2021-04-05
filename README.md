@@ -1,4 +1,4 @@
-# Országgyűlési Napló parser
+# Országgyűlési Napló elemző
 ## Leírás:  
 A modul az Országgyűlési Napló pdf dokumentum letöltésére és elemzésére szolgál.
 ## A modullal lehetséges:
@@ -29,7 +29,7 @@ from pprint import pprint
 
 import hunparl as hp
 
-HOME_DIR = Path("/home/xunguist/Ipython_Notebooks/Scraper/Parlament/Downloaded")
+HOME_DIR = Path("/home/Downloaded")
 ```
 
 ### 2. Letöltés
@@ -40,7 +40,7 @@ forrás: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
 hp.letolto.scraper(HOME_DIR)
 ```
 
-    Országgyűlési Napló 186.szám.pdf mentve: /home/xunguist/Ipython_Notebooks/Scraper/Parlament/Downloaded
+    Országgyűlési Napló 186.szám.pdf mentve: /home/Downloaded
     CPU times: user 211 ms, sys: 11.2 ms, total: 222 ms
     Wall time: 335 ms
 
@@ -133,7 +133,7 @@ hp.parser.elnok_lista(tisztazott)
 hp.parser.jegyzo_lista(tisztazott)
 ```
     ['Gelencsér Attila', 'Szilágyi György']
-	
+    
 
 #### 5.f Törzsszöveg
 > "ELNÖK: (A teremben lévők felállnak, [...] az ülést bezárom." közötti rész.  
@@ -244,10 +244,7 @@ print(type(BBI))
 print(type(BBI[0]))
 BBI[0][:100]
 ```
-
     Kulcs-Érték pár:
-    <class 'list'>
-    <class 'str'>
 
     'BANGÓNÉ BORBÉLY ILDIKÓ (MSZP): Köszönöm szépen, elnök úr. Tisztelt Képviselőtársak!  A múlt héten vo'
 
