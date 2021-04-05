@@ -40,7 +40,7 @@ forrás: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
 hp.letolto.scraper(HOME_DIR)
 ```
 
-    Országgyűlési Napló 186.szám.pdf mentve: /home/xunguist/Ipython_Notebooks/Scraper/Parlament/Downloaded
+    Országgyűlési Napló 186.szám.pdf mentve: /home/Downloaded
     CPU times: user 211 ms, sys: 11.2 ms, total: 222 ms
     Wall time: 335 ms
 
