@@ -1,4 +1,4 @@
-# Országgyűlési Napló parser
+# Országgyűlési Napló elemző
 ## Leírás:  
 A modul az Országgyűlési Napló pdf dokumentum letöltésére és elemzésére szolgál.
 ## A modullal lehetséges:
