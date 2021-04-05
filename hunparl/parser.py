@@ -6,14 +6,17 @@ országgnyűlési napló parser
 import re
 
 def szam(text: str)->str:
-    """
-    #TODO
-    """
-    szam_pat = re.compile(r" \d{3,3}. szám")
-    szam_result = re.findall(szam_pat, text)
-    szam_result_clean = szam_result[0].\
-    replace(". szám", "").strip()
-    return szam_result_clean
+    ""
+    try:
+        szam_pat = re.compile(r"\d{2,3}\. szám")
+        szam = re.findall(szam_pat, text)
+        szam = szam[0].replace(". szám","").strip()
+    except IndexError as IE:
+        szam_pat = re.compile(r"\d{1,3}/\d{1,2}\. szám")
+        szam = re.findall(szam_pat, text)
+        szam = szam[0].replace(". szám","").strip()
+        pass
+    return szam
 
 def ciklus(text: str)->str:
     """
