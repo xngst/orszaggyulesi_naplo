@@ -7,7 +7,7 @@ A python3 modul az Országgyűlési Napló pdf dokumentum letöltésére és ele
    3. a dokumentum tisztázása  
    4. a következő adatok kinyerése:
    
-* ciklus  
+   * ciklus  
    * dokumentum szám
    * elnökök listája
    * jegyzők listája
