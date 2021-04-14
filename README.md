@@ -18,7 +18,7 @@ A python3 modul az Országgyűlési Napló pdf dokumentum letöltésére és ele
    * képviselői felszőlalások listája
    * felszólalás közben elhangzó és legyzett reakciók listája
 
-dokumentum forrása: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
+Országgyűlési napló dokumentum forrása: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
 
 ### 1. Modul importálása
 
