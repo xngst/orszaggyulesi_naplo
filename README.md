@@ -7,14 +7,14 @@ A csomag az Országgyűlési Napló pdf dokumentum letöltésére és elemzésé
    3. a dokumentum tisztázása  
    4. a következő adatok kinyerése:
    
-   * ciklus  
+   * parlementi ciklus  
    * dokumentum szám
    * elnökök listája
    * jegyzők listája
    * törzsszöveg
    * felszólaló képviselők listája
    * tárgyalt határozati javaslatok listája
-   * tárgyalt törvény javaslatok listája
+   * tárgyalt törvényjavaslatok listája
    * képviselői felszőlalások listája
    * felszólalás közben elhangzó és legyzett reakciók listája
 
@@ -235,7 +235,7 @@ A példa másik egy példányból származik:
     'H/7960', 
     'H/8191']
 
-#### 5.i Tárgyalt vagy említett törvény javaslatok listája
+#### 5.i Tárgyalt vagy említett törvényjavaslatok listája
 
 ```python
 hp.parser.torveny_javaslat_lista(torzsszoveg)
@@ -270,8 +270,9 @@ BBI[0][:100]
 
     'OROSZ ANNA (Momentum): Köszönöm a szót.  Tisztelt Államtitkár Asszony! Palkovics László innovációs  '
 
-#### 5.k Felszólalás közben elhangzó és legyzett reakciók listája
-Ha több felszuólalás is van, akkor bele kell indexelni a listába: kepv_felsz_dict['OROSZ ANNA'][0]  
+#### 5.k Felszólalás közben elhangzó és lejegyzett reakciók listája
+Ha egy kéviselőtől több felszuólalást is tartalmaz a kepv_felsz_dict,   
+akkor bele kell indexelni a listába: kepv_felsz_dict['OROSZ ANNA'][0]  
 
 ```python
 hp.parser.reakcio_lista(kepv_felsz_dict['OROSZ ANNA'][0])
