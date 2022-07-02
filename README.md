@@ -33,41 +33,43 @@ HOME_DIR = Path("/home/Downloaded")
 ```
 
 ### 2. Letöltés
-#### 2.a A parlament.hu oldalán legutoljára közzétett Országgyűlési napló letöltése (default) a megadott HOME_DIR elérési útvonalra
+#### 2.a A parlament.hu oldalán legutoljára közzétett Országgyűlési napló letöltése (default) a megadott DOWN_DIR elérési útvonalra
 forrás: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
 
+![letoltes-gif](./gifs/letoltes.gif)
+
+
 ```python
-hp.letolto.scraper(HOME_DIR)
+hp.letolto.scraper(DOWN_DIR)
 ```
 
-    Országgyűlési Napló 186.szám.pdf mentve: /home/Downloaded
-    CPU times: user 211 ms, sys: 11.2 ms, total: 222 ms
-    Wall time: 335 ms
+    Országgyűlési Napló 17.szám.pdf mentve: /home/xn/Downloads/Országgyűlés  
 
 
 #### 2.b Tetszőleges szám letöltése
 
 
 ```python
-szam = "100"
-hp.letolto.scraper(HOME_DIR,szam)
+szam = "5"
+hp.letolto.scraper(DOWN_DIR,szam)
 ```
 
-    Országgyűlési Napló 100.szám.pdf mentve: /home/xunguist/Ipython_Notebooks/Scraper/Parlament/Downloaded
+    Országgyűlési Napló 5.szám.pdf mentve: /home/xn/Downloads/Országgyűlés
 
 
 ### 3. PDF formátumból TXT formátumba történő konvertálás
 
+![letoltes-gif](./gifs/konvertalas.gif)
 
 ```python
-konvertalt = hp.konvertalo.pdf_to_txt(HOME_DIR/"Országgyűlési Napló 100.szám.pdf")
+konvertalt = hp.konvertalo.pdf_to_txt(DOWN_DIR/"Országgyűlési Napló 17.szám.pdf")
 ```
 
 ```python
 konvertalt[:100]
 ```
 
-    '   2018-2022. országgyűlési ciklus   Budapest, 2019. december 3. kedd \n\n100. szám \n\n \n\n \n \n \n \n\n \n\nO'
+    '   2022-2026. országgyűlési ciklus   Budapest, 2022. június 27. hétfő \n\n17. szám \n\n \n\n \n \n \n \n\n \n\nOr'
 
 
 
@@ -92,7 +94,7 @@ tisztazott = hp.tisztazo.ogy_n_tisztazo(konvertalt)
 ```python
 hp.parser.ciklus(tisztazott)
 ```
-    '2018-2022'
+    '2022-2026'
 
 
 #### 5.b Aktuális kiadvány száma
@@ -101,7 +103,7 @@ hp.parser.ciklus(tisztazott)
 ```python
 hp.parser.szam(tisztazott)
 ```
-    '100'
+    '17'
 
 #### 5.c Parlamenti ülés dátuma
 
@@ -112,7 +114,7 @@ hp.parser.ules_datum(tisztazott)
 
 
 
-    '2019. december 3.'
+    '2022. június 27.'
 
 #### 5.d Elnökök
 (alelnökök és a háznagy)  
@@ -125,14 +127,14 @@ a képviselőcsoportok (frakciók) vezetői és a háznagy.
 hp.parser.elnok_lista(tisztazott)
 ```
 
-    ['Jakab István']
+    ['Kövér László, Jakab István', 'dr. Oláh Lajos']
 
 #### 5.e Jegyzők
 
 ```python
 hp.parser.jegyzo_lista(tisztazott)
 ```
-    ['Gelencsér Attila', 'Szilágyi György']
+    ['Hiszékeny Dezső', 'Szabó Sándor', 'dr. Szűcs Lajos', 'dr. Vinnai Győző']
     
 
 #### 5.f Törzsszöveg
@@ -162,65 +164,85 @@ kepv_list = hp.parser.kepviselo_lista(torzsszoveg)
 kepv_list
 ```
 
-    ['BANGÓNÉ BORBÉLY ILDIKÓ',
-     'BECSÓ ZSOLT',
-     'BÁNKI ERIK',
-     'DR. APÁTI ISTVÁN',
-     'DR. KERESZTES LÁSZLÓ LÓRÁNT',
-     'DR. LATORCAI JÁNOS',
-     'DR. LUKÁCS LÁSZLÓ GYÖRGY',
-     'DR. MELLÁR TAMÁS',
-     'DR. ORBÁN BALÁZS',
-     'DR. RÉTVÁRI BENCE',
-     'DR. TAPOLCZAI GERGELY',
-     'DR. VÖLNER PÁL',
-     'DÚRÓ DÓRA',
-     'FARKAS GERGELY',
-     'GELENCSÉR ATTILA',
-     'GRÉCZY ZSOLT',
-     'MAGYAR ZOLTÁN',
-     'NACSA LŐRINC',
-     'NUNKOVICS TIBOR',
-     'NYITRAI ZSOLT',
-     'SCHANDA TAMÁS JÁNOS',
-     'UNGÁR PÉTER',
-     'VARGA MIHÁLY',
-     'Z. KÁRPÁT DÁNIEL']
+    ['BAKOS BERNADETT',  
+    'BALASSA PÉTER',  
+    'BARKÓCZI BALÁZS',  
+    'BENCZE JÁNOS',  
+    'BERKI SÁNDOR',  
+    'DR. APÁTI ISTVÁN',  
+    'DR. BRENNER KOLOMAN',  
+    'DR. FÓNAGY JÁNOS',  
+    'DR. FÜRJES BALÁZS',  
+    'DR. HARANGOZÓ TAMÁS',  
+    'DR. KERESZTES LÁSZLÓ LÓRÁNT',  
+    'DR. KONCZ ZSÓFIA',  
+    'DR. KÁLLAI MÁRIA',  
+    'DR. LUKÁCS LÁSZLÓ GYÖRGY',  
+    'DR. MELLÁR TAMÁS',  
+    'DR. RÉPÁSSY RÓBERT',  
+    'DR. SIMICSKÓ ISTVÁN',  
+    'DR. VARGA JUDIT',  
+    'DÓCS DÁVID',  
+    'DÖMÖTÖR CSABA',  
+    'DÚRÓ DÓRA',  
+    'FARKAS SÁNDOR',  
+    'FEKETE-GYŐR ANDRÁS',  
+    'FÖLDESI GYULA',  
+    'FÖLDI LÁSZLÓ',  
+    'GY. NÉMETH ERZSÉBET',  
+    'HALÁSZ JÁNOS',  
+    'HEGEDÜS ANDREA',  
+    'HISZÉKENY DEZSŐ',  
+    'JAKAB PÉTER',  
+    'KANÁSZ-NAGY MÁTÉ',  
+    'KOMJÁTHI IMRE',  
+    'KÁLMÁN OLGA',  
+    'MAGYAR LEVENTE',  
+    'MENCZER TAMÁS',  
+    'MIHÁLFFY BÉLA',  
+    'MINDEN JOG FENNTARTVA',  
+    'NACSA LŐRINC',  
+    'NÉMETH SZILÁRD ISTVÁN',  
+    'ORBÁN VIKTOR',  
+    'OROSZ ANNA',  
+    'RÉTVÁRI BENCE',  
+    'SEBIÁN-PETROVSZKI LÁSZLÓ',  
+    'SZABÓ REBEKA',  
+    'SZABÓ SÁNDOR',  
+    'TOMPOS MÁRTON KRISTÓF',  
+    'TORDAI BENCE',  
+    'TOROCZKAI LÁSZLÓ',  
+    'TUZSON BENCE',  
+    'TÁLLAI ANDRÁS',  
+    'TÓTH ENDRE',  
+    'UNGÁR PÉTER',  
+    'VAJDA ZOLTÁN',  
+    'VARGA ZOLTÁN',  
+    'VARJU LÁSZLÓ',  
+    'VITÁLYOS ESZTER',  
+    'Z. KÁRPÁT DÁNIEL']
+
 
 #### 5.h Tárgyalt határozati javaslatok listája
 
 ```python
 hp.parser.hatarozati_javaslat_lista(torzsszoveg)
 ```
+A példa másik egy példányból származik:  
 
-    ['H/7380', 'H/7840', 'H/7960', 'H/8191']
+    ['H/7380', 
+    'H/7840', 
+    'H/7960', 
+    'H/8191']
 
-#### 5.i Tárgyalt törvény javaslatok listája
+#### 5.i Tárgyalt vagy említett törvény javaslatok listája
 
 ```python
 hp.parser.torveny_javaslat_lista(torzsszoveg)
 ```
-    ['T/6265',
-     'T/6576',
-     'T/7021',
-     'T/7686',
-     'T/7688',
-     'T/7701',
-     'T/7839',
-     'T/7846',
-     'T/7996',
-     'T/7997',
-     'T/8000',
-     'T/8001',
-     'T/8002',
-     'T/8003',
-     'T/8012',
-     'T/8015',
-     'T/8027',
-     'T/8032',
-     'T/8036',
-     'T/8038',
-     'T/8190']
+
+    ['T/286', 
+    'T/287']
 
 #### 5.j Képviselői felszőlalások szótára
 > Kulcs: képviselő neve  
@@ -235,24 +257,26 @@ pprint(kepv_felsz_dict.keys())
 ```
 
     Kulcsok:
-    dict_keys(['BANGÓNÉ BORBÉLY ILDIKÓ', 'BECSÓ ZSOLT', 'BÁNKI ERIK', 'DR. APÁTI ISTVÁN', 'DR. KERESZTES LÁSZLÓ LÓRÁNT', 'DR. LATORCAI JÁNOS', 'DR. LUKÁCS LÁSZLÓ GYÖRGY', 'DR. MELLÁR TAMÁS', 'DR. ORBÁN BALÁZS', 'DR. RÉTVÁRI BENCE', 'DR. TAPOLCZAI GERGELY', 'DR. VÖLNER PÁL', 'DÚRÓ DÓRA', 'FARKAS GERGELY', 'GELENCSÉR ATTILA', 'GRÉCZY ZSOLT', 'MAGYAR ZOLTÁN', 'NACSA LŐRINC', 'NUNKOVICS TIBOR', 'NYITRAI ZSOLT', 'SCHANDA TAMÁS JÁNOS', 'UNGÁR PÉTER', 'VARGA MIHÁLY', 'Z. KÁRPÁT DÁNIEL'])
+    dict_keys(['BAKOS BERNADETT', 'BALASSA PÉTER', 'BARKÓCZI BALÁZS', 'BENCZE JÁNOS', 'BERKI SÁNDOR', 'DR. APÁTI ISTVÁN', 'DR. BRENNER KOLOMAN', 'DR. FÓNAGY JÁNOS', 'DR. FÜRJES BALÁZS', 'DR. HARANGOZÓ TAMÁS', 'DR. KERESZTES LÁSZLÓ LÓRÁNT', 'DR. KONCZ ZSÓFIA', 'DR. KÁLLAI MÁRIA', 'DR. LUKÁCS LÁSZLÓ GYÖRGY', 'DR. MELLÁR TAMÁS', 'DR. RÉPÁSSY RÓBERT', 'DR. SIMICSKÓ ISTVÁN', 'DR. VARGA JUDIT', 'DÓCS DÁVID', 'DÖMÖTÖR CSABA', 'DÚRÓ DÓRA', 'FARKAS SÁNDOR', 'FEKETE-GYŐR ANDRÁS', 'FÖLDESI GYULA', 'FÖLDI LÁSZLÓ', 'GY. NÉMETH ERZSÉBET', 'HALÁSZ JÁNOS', 'HEGEDÜS ANDREA', 'HISZÉKENY DEZSŐ', 'JAKAB PÉTER', 'KANÁSZ-NAGY MÁTÉ', 'KOMJÁTHI IMRE', 'KÁLMÁN OLGA', 'MAGYAR LEVENTE', 'MENCZER TAMÁS', 'MIHÁLFFY BÉLA', 'MINDEN JOG FENNTARTVA', 'NACSA LŐRINC', 'NÉMETH SZILÁRD ISTVÁN', 'ORBÁN VIKTOR', 'OROSZ ANNA', 'RÉTVÁRI BENCE', 'SEBIÁN-PETROVSZKI LÁSZLÓ', 'SZABÓ REBEKA', 'SZABÓ SÁNDOR', 'TOMPOS MÁRTON KRISTÓF', 'TORDAI BENCE', 'TOROCZKAI LÁSZLÓ', 'TUZSON BENCE', 'TÁLLAI ANDRÁS', 'TÓTH ENDRE', 'UNGÁR PÉTER', 'VAJDA ZOLTÁN', 'VARGA ZOLTÁN', 'VARJU LÁSZLÓ', 'VITÁLYOS ESZTER', 'Z. KÁRPÁT DÁNIEL'])
 
 ```python
 print("Kulcs-Érték pár:")
-BBI = kepv_felsz_dict['BANGÓNÉ BORBÉLY ILDIKÓ']
-print(type(BBI))
-print(type(BBI[0]))
+OAf = kepv_felsz_dict['OROSZ ANNA']
+print(type(OAf))
+print(type(OAf[0]))
 BBI[0][:100]
 ```
     Kulcs-Érték pár:
 
-    'BANGÓNÉ BORBÉLY ILDIKÓ (MSZP): Köszönöm szépen, elnök úr. Tisztelt Képviselőtársak!  A múlt héten vo'
+    'OROSZ ANNA (Momentum): Köszönöm a szót.  Tisztelt Államtitkár Asszony! Palkovics László innovációs  '
 
 #### 5.k Felszólalás közben elhangzó és legyzett reakciók listája
-
+Ha több felszuólalás is van, akkor bele kell indexelni a listába: kepv_felsz_dict['OROSZ ANNA'][0]  
 
 ```python
-hp.parser.reakcio_lista(kepv_felsz_dict['BÁNKI ERIK'])
+hp.parser.reakcio_lista(kepv_felsz_dict['OROSZ ANNA'][0])
 ```
 
-    ['(Zaj. - Az elnök csenget.)', '(Taps a kormánypárti padsorokban.)']
+    ['(Momentum)', '(Rétvári Bence: Vagy képviselőt!)',   
+    '(Az elnök a csengő megkocogtatásával jelzi az időkeret leteltét.)',   
+    '(Az elnök ismét csenget.)']  
