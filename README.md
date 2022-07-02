@@ -260,15 +260,9 @@ pprint(kepv_felsz_dict.keys())
     dict_keys(['BAKOS BERNADETT', 'BALASSA PÉTER', 'BARKÓCZI BALÁZS', 'BENCZE JÁNOS', 'BERKI SÁNDOR', 'DR. APÁTI ISTVÁN', 'DR. BRENNER KOLOMAN', 'DR. FÓNAGY JÁNOS', 'DR. FÜRJES BALÁZS', 'DR. HARANGOZÓ TAMÁS', 'DR. KERESZTES LÁSZLÓ LÓRÁNT', 'DR. KONCZ ZSÓFIA', 'DR. KÁLLAI MÁRIA', 'DR. LUKÁCS LÁSZLÓ GYÖRGY', 'DR. MELLÁR TAMÁS', 'DR. RÉPÁSSY RÓBERT', 'DR. SIMICSKÓ ISTVÁN', 'DR. VARGA JUDIT', 'DÓCS DÁVID', 'DÖMÖTÖR CSABA', 'DÚRÓ DÓRA', 'FARKAS SÁNDOR', 'FEKETE-GYŐR ANDRÁS', 'FÖLDESI GYULA', 'FÖLDI LÁSZLÓ', 'GY. NÉMETH ERZSÉBET', 'HALÁSZ JÁNOS', 'HEGEDÜS ANDREA', 'HISZÉKENY DEZSŐ', 'JAKAB PÉTER', 'KANÁSZ-NAGY MÁTÉ', 'KOMJÁTHI IMRE', 'KÁLMÁN OLGA', 'MAGYAR LEVENTE', 'MENCZER TAMÁS', 'MIHÁLFFY BÉLA', 'MINDEN JOG FENNTARTVA', 'NACSA LŐRINC', 'NÉMETH SZILÁRD ISTVÁN', 'ORBÁN VIKTOR', 'OROSZ ANNA', 'RÉTVÁRI BENCE', 'SEBIÁN-PETROVSZKI LÁSZLÓ', 'SZABÓ REBEKA', 'SZABÓ SÁNDOR', 'TOMPOS MÁRTON KRISTÓF', 'TORDAI BENCE', 'TOROCZKAI LÁSZLÓ', 'TUZSON BENCE', 'TÁLLAI ANDRÁS', 'TÓTH ENDRE', 'UNGÁR PÉTER', 'VAJDA ZOLTÁN', 'VARGA ZOLTÁN', 'VARJU LÁSZLÓ', 'VITÁLYOS ESZTER', 'Z. KÁRPÁT DÁNIEL'])
 
 ```python
-print("Kulcs-Érték pár:")
-OAf = kepv_felsz_dict['OROSZ ANNA']
-print(type(OAf))
-print(type(OAf[0]))
-BBI[0][:100]
+kepv_felsz_dict['OROSZ ANNA']
 ```
-    Kulcs-Érték pár:
-
-    'OROSZ ANNA (Momentum): Köszönöm a szót.  Tisztelt Államtitkár Asszony! Palkovics László innovációs  '
+    '['OROSZ ANNA (Momentum): Köszönöm a szót.  Tisztelt Államtitkár Asszony! Palkovics László innovációs  és technológiai miniszterként még az előző ciklusban  többször is hangsúlyozta a...'
 
 #### 5.k Felszólalás közben elhangzó és lejegyzett reakciók listája
 Ha egy kéviselőtől több felszuólalást is tartalmaz a kepv_felsz_dict,   
