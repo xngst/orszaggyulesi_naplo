@@ -1,7 +1,16 @@
 """
-#TODO
+scraper 
+Letölti a https://www.parlament.hu/orszaggyulesi-naplo 
+oldalon pdf formátumban közzétett országgyűlési naplókat.
+
+szam_lista
+Visszaadja az adott ciklusban közzétett 
+összes parlamenti napló sorszámait.
+
+legujabb_szam
+Visszaadja az adott ciklusban közzétett 
+legutolsó parlementi napló számát
 """
-# pylint: disable-msg=too-many-locals
 
 from urllib import parse
 from pathlib import Path
@@ -11,22 +20,25 @@ import requests
 
 from bs4 import BeautifulSoup
 
+from requests.packages import urllib3
+urllib3.disable_warnings()
+
 def scraper(homedir: str, szam: int = -1)->str:
     """
+    Letölti a szám paraméterrel meghatározott parlamenti naplót 
+    a homedir paraméterben megadott könyvtárba.
     szam: kiadvány száma pozitív integer
-    ha szam = -1, akkor a legutoljára közzétett példányt tölti le
-    default: -1
+    ha szam = -1 (default), akkor a legutoljára közzétett példányt tölti le
     """
     home_dir = Path(homedir)
     url = "https://www.parlament.hu/orszaggyulesi-naplo"
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
 
     if response.status_code == http.client.OK:
 
         content = response.text
         soup = BeautifulSoup(content, 'html.parser')
 
-        # get all document links
         links = soup.find_all("a", href=True)
 
         linklist = [l.get('href') for l in links \
@@ -60,8 +72,7 @@ def scraper(homedir: str, szam: int = -1)->str:
             response = requests.get(naplo_url)
             file_name = int(szam)
 
-        with open(home_dir/f"Országgyűlési Napló {file_name}.szám.pdf",
-                  'wb') as file:
+        with open(home_dir/f"Országgyűlési Napló {file_name}.szám.pdf",'wb') as file:
             file.write(response.content)
             print(f"Országgyűlési Napló {file_name}"\
             f".szám.pdf mentve: {home_dir}")
@@ -69,9 +80,12 @@ def scraper(homedir: str, szam: int = -1)->str:
         print("Request not succeeded.")
 
 def szam_lista()->list:
-    "#TODO"
+    """
+    Visszaadja az adott ciklusban közzétett 
+    összes parlamenti napló sorszámait.
+    """
     url = "https://www.parlament.hu/orszaggyulesi-naplo"
-    response = requests.get(url)
+    response = requests.get(url,verify=False)
 
     if response.status_code == http.client.OK:
         content = response.text
@@ -87,14 +101,18 @@ def szam_lista()->list:
             try:
                 cleaned = int(text.replace(". szám", ""))
                 casted_list.append(cleaned)
-            except ValueError:
+            except ValueError as VE:
+                print(VE)
                 pass
     return sorted(casted_list)
 
 def legujabb_szam()->int:
-    "#TODO"
+    """
+    Visszaadja az adott ciklusban közzétett 
+    legutolsó parlementi napló számát
+    """
     url = "https://www.parlament.hu/orszaggyulesi-naplo"
-    response = requests.get(url)
+    response = requests.get(url,verify=False)
 
     if response.status_code == http.client.OK:
         content = response.text
@@ -110,7 +128,8 @@ def legujabb_szam()->int:
             try:
                 cleaned = int(text.replace(". szám", ""))
                 casted_list.append(cleaned)
-            except ValueError:
+            except ValueError as VE:
+                print(VE)
                 pass
         legujabb = max(casted_list)
     return legujabb
