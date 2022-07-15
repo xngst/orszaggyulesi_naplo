@@ -16,7 +16,7 @@ A csomag az Országgyűlési Napló pdf dokumentum letöltésére és elemzésé
    * tárgyalt határozati javaslatok listája
    * tárgyalt törvényjavaslatok listája
    * képviselői felszőlalások listája
-   * felszólalás közben elhangzó és legyzett reakciók listája
+   * felszólalás közben elhangzó és lejegyzett reakciók listája
 
 Országgyűlési napló dokumentum forrása: https://www.parlament.hu/web/guest/orszaggyulesi-naplo
 
